@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-006 Task List - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | Sidebar: Dashboard          | Click   | wireframe-SCR-013-dashboard.html               |
+  | Sidebar: Tasks              | Click   | wireframe-SCR-006-task-list.html               |
+  | "+ New Task" button         | Click   | wireframe-SCR-008-task-form.html               |
+  | Task card click             | Click   | wireframe-SCR-007-task-detail.html             |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left">
+          <h1 style="font-size: var(--text-h4-size); font-weight: 700; color: var(--color-neutral-900);">My Tasks</h1>
+          <span class="badge badge-ai" style="font-size: 11px;">12 active</span>
+        </div>
+        <div class="header-right">
+          <a href="wireframe-SCR-008-task-form.html" class="btn btn-primary btn-sm">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Task
+          </a>
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content">
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="search-field" style="flex: 1; max-width: 300px;">
+            <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" class="form-input" placeholder="Search tasks..." aria-label="Search tasks">
+          </div>
+          <select class="form-select" aria-label="Filter by status" style="border-radius: var(--radius-md);">
+            <option>All statuses</option>
+            <option>Pending</option>
+            <option>In Progress</option>
+            <option>Completed</option>
+          </select>
+          <select class="form-select" aria-label="Filter by priority" style="border-radius: var(--radius-md);">
+            <option>All priorities</option>
+            <option>Critical</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+          <select class="form-select" aria-label="Sort by" style="border-radius: var(--radius-md);">
+            <option>Due date</option>
+            <option>Priority</option>
+            <option>Created</option>
+          </select>
+        </div>
+
+        <!-- Task Cards -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <a href="wireframe-SCR-007-task-detail.html" class="task-card" style="text-decoration: none; color: inherit;">
+            <div class="task-card-checkbox"></div>
+            <div class="task-card-content">
+              <p class="task-card-title">Submit quarterly budget proposal</p>
+              <div class="task-card-meta">
+                <span class="badge badge-critical">Critical</span>
+                <span class="badge badge-pending">In Progress</span>
+                <span class="task-card-date"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Due tomorrow</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="wireframe-SCR-007-task-detail.html" class="task-card" style="text-decoration: none; color: inherit;">
+            <div class="task-card-checkbox"></div>
+            <div class="task-card-content">
+              <p class="task-card-title">Review API documentation for v2 release</p>
+              <div class="task-card-meta">
+                <span class="badge badge-high">High</span>
+                <span class="badge badge-pending">Pending</span>
+                <span class="task-card-date"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Due in 3 days</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="wireframe-SCR-007-task-detail.html" class="task-card" style="text-decoration: none; color: inherit;">
+            <div class="task-card-checkbox"></div>
+            <div class="task-card-content">
+              <p class="task-card-title">Prepare team presentation slides</p>
+              <div class="task-card-meta">
+                <span class="badge badge-medium">Medium</span>
+                <span class="badge badge-pending">Pending</span>
+                <span class="task-card-date"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Due in 5 days</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="wireframe-SCR-007-task-detail.html" class="task-card" style="text-decoration: none; color: inherit;">
+            <div class="task-card-checkbox"></div>
+            <div class="task-card-content">
+              <p class="task-card-title">Update onboarding documentation</p>
+              <div class="task-card-meta">
+                <span class="badge badge-low">Low</span>
+                <span class="badge badge-active">In Progress</span>
+                <span class="task-card-date"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Due next week</span>
+              </div>
+            </div>
+          </a>
+
+          <a href="wireframe-SCR-007-task-detail.html" class="task-card" style="text-decoration: none; color: inherit; opacity: 0.6;">
+            <div class="task-card-checkbox checked"></div>
+            <div class="task-card-content">
+              <p class="task-card-title" style="text-decoration: line-through;">Set up CI/CD pipeline</p>
+              <div class="task-card-meta">
+                <span class="badge badge-done">Completed</span>
+                <span class="task-card-date">Completed 2 days ago</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" style="justify-content: center; margin-top: var(--space-6);">
+          <button class="pagination-btn" disabled aria-label="Previous">←</button>
+          <button class="pagination-btn active" aria-current="page">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn" aria-label="Next">→</button>
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a href="wireframe-SCR-013-dashboard.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Home</span></a>
+      <a href="wireframe-SCR-006-task-list.html" class="bottom-nav-item active"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+      <a href="wireframe-SCR-011-ai-task-input.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI</span></a>
+      <a href="wireframe-SCR-010-upcoming-reminders.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Alerts</span></a>
+      <a href="wireframe-SCR-005-user-profile.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></a>
+    </nav>
+  </div>
+</body>
+</html>

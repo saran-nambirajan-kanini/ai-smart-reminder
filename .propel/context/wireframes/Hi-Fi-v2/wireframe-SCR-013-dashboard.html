@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-013 Dashboard - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | Metric cards                | Click   | wireframe-SCR-006-task-list.html               |
+  | Task list item              | Click   | wireframe-SCR-007-task-detail.html             |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left">
+          <h1 style="font-size: var(--text-h4-size); font-weight: 700;">Good morning, John</h1>
+        </div>
+        <div class="header-right">
+          <a href="wireframe-SCR-011-ai-task-input.html" class="btn btn-primary btn-sm" style="gap: var(--space-2);">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            AI Task
+          </a>
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content">
+        <!-- Bento Metric Cards -->
+        <div class="grid grid-cols-4 mb-8">
+          <a href="wireframe-SCR-006-task-list.html" class="metric-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <div class="metric-card-icon metric-card-icon-purple"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+            <p class="metric-card-label">Total Tasks</p>
+            <p class="metric-card-value">24</p>
+            <p class="metric-card-trend trend-up">↑ 3 this week</p>
+          </a>
+          <a href="wireframe-SCR-006-task-list.html" class="metric-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <div class="metric-card-icon metric-card-icon-green"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <p class="metric-card-label">Completed</p>
+            <p class="metric-card-value">18</p>
+            <p class="metric-card-trend trend-up">75% completion</p>
+          </a>
+          <a href="wireframe-SCR-006-task-list.html" class="metric-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <div class="metric-card-icon metric-card-icon-blue"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <p class="metric-card-label">Pending</p>
+            <p class="metric-card-value">4</p>
+            <p class="metric-card-trend">Due this week</p>
+          </a>
+          <a href="wireframe-SCR-006-task-list.html" class="metric-card" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <div class="metric-card-icon metric-card-icon-orange"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+            <p class="metric-card-label">Overdue</p>
+            <p class="metric-card-value" style="color: var(--color-error-500);">2</p>
+            <p class="metric-card-trend trend-down">↑ Action needed</p>
+          </a>
+        </div>
+
+        <!-- Charts + AI Insights (Bento Grid) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-5); margin-bottom: var(--space-8);">
+          <div class="card col-span-2">
+            <div class="card-header"><h3 class="card-title">Task Completion Trend</h3></div>
+            <div class="chart-placeholder">📊 Weekly task completion chart</div>
+          </div>
+          <div class="ai-card" style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-4);">
+              <span class="ai-sparkle">✦ AI Insights</span>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; gap: var(--space-4);">
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900); margin-bottom: 4px;">Productivity peak</p>
+                <p class="text-caption">You complete 40% more tasks on Tuesdays</p>
+              </div>
+              <div class="divider" style="margin: 0;"></div>
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900); margin-bottom: 4px;">Upcoming crunch</p>
+                <p class="text-caption">3 high-priority tasks due within 48 hours</p>
+              </div>
+              <div class="divider" style="margin: 0;"></div>
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900); margin-bottom: 4px;">Suggestion</p>
+                <p class="text-caption">Consider delegating the documentation update</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Tasks -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Recent Tasks</h3>
+            <a href="wireframe-SCR-006-task-list.html" class="btn btn-ghost btn-sm">View all →</a>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <a href="wireframe-SCR-007-task-detail.html" class="list-item" style="text-decoration: none; color: inherit;">
+              <div style="flex: 1;">
+                <p class="font-medium" style="color: var(--color-neutral-900);">Submit quarterly budget proposal</p>
+                <p class="text-caption">Due tomorrow · Finance</p>
+              </div>
+              <span class="badge badge-critical">Critical</span>
+            </a>
+            <a href="wireframe-SCR-007-task-detail.html" class="list-item" style="text-decoration: none; color: inherit;">
+              <div style="flex: 1;">
+                <p class="font-medium" style="color: var(--color-neutral-900);">Review API documentation</p>
+                <p class="text-caption">Due in 3 days · Engineering</p>
+              </div>
+              <span class="badge badge-high">High</span>
+            </a>
+            <a href="wireframe-SCR-007-task-detail.html" class="list-item" style="text-decoration: none; color: inherit;">
+              <div style="flex: 1;">
+                <p class="font-medium" style="color: var(--color-neutral-900);">Prepare team presentation</p>
+                <p class="text-caption">Due in 5 days · Work</p>
+              </div>
+              <span class="badge badge-medium">Medium</span>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a href="wireframe-SCR-013-dashboard.html" class="bottom-nav-item active"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Home</span></a>
+      <a href="wireframe-SCR-006-task-list.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+      <a href="wireframe-SCR-011-ai-task-input.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI</span></a>
+      <a href="wireframe-SCR-010-upcoming-reminders.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Alerts</span></a>
+      <a href="wireframe-SCR-005-user-profile.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></a>
+    </nav>
+  </div>
+</body>
+</html>

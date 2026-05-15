@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-008 Task Form - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | "Save" button               | Submit  | wireframe-SCR-007-task-detail.html             |
+  | "Cancel" button             | Click   | wireframe-SCR-006-task-list.html               |
+  | Breadcrumb: Tasks           | Click   | wireframe-SCR-006-task-list.html               |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="wireframe-SCR-006-task-list.html">Tasks</a>
+            <span class="breadcrumb-separator" aria-hidden="true">›</span>
+            <span class="breadcrumb-current">New Task</span>
+          </nav>
+        </div>
+        <div class="header-right"><div class="avatar">JD</div></div>
+      </header>
+
+      <main class="main-content" id="main-content" style="max-width: 720px;">
+        <h1 style="font-size: var(--text-h2-size); font-weight: 800; margin-bottom: var(--space-2);">Create Task</h1>
+        <p class="page-subtitle">Fill in the details or use AI to help you get started.</p>
+
+        <!-- AI Suggestion Banner -->
+        <div class="ai-card mb-6" style="display: flex; align-items: center; gap: var(--space-4);">
+          <div style="width: 40px; height: 40px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          </div>
+          <div style="flex: 1;">
+            <p class="font-semibold" style="color: var(--color-primary-700); margin-bottom: 2px;">AI suggests: Priority "High"</p>
+            <p class="text-caption">Based on your due date and category, this task appears urgent</p>
+          </div>
+          <button class="btn btn-outline btn-sm">Accept</button>
+          <button class="btn btn-ghost btn-sm">Dismiss</button>
+        </div>
+
+        <!-- Form -->
+        <form class="card">
+          <div class="form-group">
+            <label class="form-label" for="title">Task title <span class="required">*</span></label>
+            <input type="text" class="form-input" id="title" placeholder="What needs to be done?" aria-required="true">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-textarea" id="description" placeholder="Add more context or details..."></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <div class="form-group">
+              <label class="form-label" for="priority">Priority</label>
+              <select class="form-select" id="priority">
+                <option>Select priority</option>
+                <option>Critical</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="category">Category</label>
+              <select class="form-select" id="category">
+                <option>Select category</option>
+                <option>Work</option>
+                <option>Personal</option>
+                <option>Finance</option>
+                <option>Health</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="due-date">Due date</label>
+            <input type="date" class="form-input" id="due-date">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="notes">Notes</label>
+            <textarea class="form-textarea" id="notes" style="min-height: 80px;" placeholder="Any additional notes..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: var(--space-3); justify-content: flex-end; margin-top: var(--space-4);">
+            <a href="wireframe-SCR-006-task-list.html" class="btn btn-ghost btn-md">Cancel</a>
+            <a href="wireframe-SCR-007-task-detail.html" class="btn btn-primary btn-md">Save Task</a>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

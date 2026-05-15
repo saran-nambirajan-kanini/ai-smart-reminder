@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-011 AI Task Input - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | "Confirm" button            | Click   | wireframe-SCR-007-task-detail.html             |
+  | "Edit" button               | Click   | wireframe-SCR-008-task-form.html               |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left"><h1 style="font-size: var(--text-h4-size); font-weight: 700;">AI Task Input</h1></div>
+        <div class="header-right"><div class="avatar">JD</div></div>
+      </header>
+
+      <main class="main-content" id="main-content" style="max-width: 800px;">
+        <!-- Hero -->
+        <div style="text-align: center; margin-bottom: var(--space-10);">
+          <div style="width: 72px; height: 72px; background: var(--gradient-primary); border-radius: var(--radius-2xl); display: inline-flex; align-items: center; justify-content: center; margin-bottom: var(--space-5); box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25); animation: pulse-glow 3s ease-in-out infinite;">
+            <svg width="36" height="36" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          </div>
+          <h1 style="font-size: var(--text-h1-size); margin-bottom: var(--space-3);">
+            <span class="gradient-text">Describe your task naturally</span>
+          </h1>
+          <p style="color: var(--color-neutral-500); font-size: var(--text-body-lg-size); max-width: 500px; margin: 0 auto;">Tell us what you need to do in plain language. Our AI will parse it into a structured task.</p>
+        </div>
+
+        <!-- Input Area -->
+        <div class="card card-glow" style="padding: var(--space-8); margin-bottom: var(--space-6);">
+          <textarea class="form-textarea" style="min-height: 140px; font-size: var(--text-body-lg-size); border: none; resize: none; padding: 0;" placeholder="e.g., &quot;Submit the Q1 budget report by next Friday, it's high priority for the finance team&quot;"></textarea>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-neutral-100);">
+            <p class="text-caption">AI will extract: title, due date, priority, and category</p>
+            <button class="btn btn-primary btn-md" style="gap: var(--space-2);">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+              Parse with AI
+            </button>
+          </div>
+        </div>
+
+        <!-- AI Parsed Result -->
+        <div class="ai-card" style="margin-bottom: var(--space-6);">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
+            <span class="ai-sparkle">✦ AI Result</span>
+            <span class="text-caption" style="color: var(--color-primary-600);">Confidence: 94%</span>
+          </div>
+          <div class="ai-confidence-bar" style="margin-bottom: var(--space-5);">
+            <div class="ai-confidence-fill" style="width: 94%;"></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: var(--space-5);">
+            <div>
+              <p class="text-caption font-semibold" style="margin-bottom: 4px;">Title</p>
+              <p class="font-medium" style="color: var(--color-neutral-900);">Submit Q1 budget report</p>
+            </div>
+            <div>
+              <p class="text-caption font-semibold" style="margin-bottom: 4px;">Due Date</p>
+              <p class="font-medium" style="color: var(--color-neutral-900);">Next Friday (Jan 26)</p>
+            </div>
+            <div>
+              <p class="text-caption font-semibold" style="margin-bottom: 4px;">Priority</p>
+              <span class="badge badge-high">High</span>
+            </div>
+            <div>
+              <p class="text-caption font-semibold" style="margin-bottom: 4px;">Category</p>
+              <p class="font-medium" style="color: var(--color-neutral-900);">Finance</p>
+            </div>
+          </div>
+          <div style="display: flex; gap: var(--space-3);">
+            <a href="wireframe-SCR-007-task-detail.html" class="btn btn-primary btn-md">Confirm & Create</a>
+            <a href="wireframe-SCR-008-task-form.html" class="btn btn-outline btn-md">Edit Details</a>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="alert alert-ai">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <div>
+            <p class="font-semibold" style="margin-bottom: 2px;">Tips for better results</p>
+            <p style="font-size: var(--text-body-sm-size);">Include dates ("by Friday"), priority ("urgent"), and context ("for the team meeting") for more accurate parsing.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a href="wireframe-SCR-013-dashboard.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Home</span></a>
+      <a href="wireframe-SCR-006-task-list.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+      <a href="wireframe-SCR-011-ai-task-input.html" class="bottom-nav-item active"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI</span></a>
+      <a href="wireframe-SCR-010-upcoming-reminders.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Alerts</span></a>
+      <a href="wireframe-SCR-005-user-profile.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></a>
+    </nav>
+  </div>
+</body>
+</html>
