@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-019 Admin Settings - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | Dashboard breadcrumb        | Click   | wireframe-SCR-016-admin-dashboard.html         |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Admin navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Admin Panel</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-016-admin-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-017-admin-users.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><span>Users</span></a>
+        <a href="wireframe-SCR-018-admin-audit-log.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg><span>Audit Log</span></a>
+        <a href="wireframe-SCR-019-admin-settings.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg><span>Settings</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-001-login.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/></svg><span>Logout</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="wireframe-SCR-016-admin-dashboard.html">Dashboard</a>
+            <span>/</span>
+            <span aria-current="page">Settings</span>
+          </nav>
+        </div>
+        <div class="header-right"><div class="avatar" style="background: var(--gradient-primary); color: white;">AD</div></div>
+      </header>
+
+      <main class="main-content" id="main-content" style="max-width: 800px;">
+        <!-- AI Model Configuration -->
+        <div class="card mb-6">
+          <h3 style="margin-bottom: var(--space-2);">AI Model Configuration</h3>
+          <p class="text-caption" style="margin-bottom: var(--space-6);">Configure the AI engine used for task analysis and priority ranking.</p>
+          <div class="form-group">
+            <label class="form-label" for="ai-model">Model Version</label>
+            <select class="form-input" id="ai-model">
+              <option selected>GPT-4o (v2.4.1) — Recommended</option>
+              <option>GPT-4o-mini (v2.4.1)</option>
+              <option>Claude 3.5 Sonnet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ai-temp">Temperature</label>
+            <input type="range" class="form-input" id="ai-temp" min="0" max="100" value="30" style="padding: 8px 0;">
+            <p class="text-caption">0.3 — Lower values produce more deterministic outputs</p>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="ai-limit">Daily Request Limit (per user)</label>
+            <input type="number" class="form-input" id="ai-limit" value="50" min="1" max="500">
+          </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="card mb-6">
+          <h3 style="margin-bottom: var(--space-2);">Notification Delivery</h3>
+          <p class="text-caption" style="margin-bottom: var(--space-6);">Global notification configuration for all users.</p>
+          <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900);">Email Notifications</p>
+                <p class="text-caption">Send reminders and digests via email</p>
+              </div>
+              <div class="toggle"><div class="toggle-track active"><div class="toggle-thumb"></div></div></div>
+            </div>
+            <div class="divider" style="margin: 0;"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900);">Push Notifications</p>
+                <p class="text-caption">Browser and mobile push alerts</p>
+              </div>
+              <div class="toggle"><div class="toggle-track active"><div class="toggle-thumb"></div></div></div>
+            </div>
+            <div class="divider" style="margin: 0;"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <p class="font-medium" style="color: var(--color-neutral-900);">SMS Alerts</p>
+                <p class="text-caption">Critical deadline notifications only</p>
+              </div>
+              <div class="toggle"><div class="toggle-track"><div class="toggle-thumb"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="card mb-6">
+          <h3 style="margin-bottom: var(--space-2);">Security</h3>
+          <p class="text-caption" style="margin-bottom: var(--space-6);">Authentication and access control settings.</p>
+          <div class="form-group">
+            <label class="form-label" for="session-timeout">Session Timeout (minutes)</label>
+            <input type="number" class="form-input" id="session-timeout" value="30" min="5" max="480">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="max-attempts">Max Login Attempts</label>
+            <input type="number" class="form-input" id="max-attempts" value="5" min="3" max="10">
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <p class="font-medium" style="color: var(--color-neutral-900);">Enforce 2FA</p>
+              <p class="text-caption">Require two-factor authentication for all users</p>
+            </div>
+            <div class="toggle"><div class="toggle-track"><div class="toggle-thumb"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Data Retention -->
+        <div class="card mb-6">
+          <h3 style="margin-bottom: var(--space-2);">Data Retention</h3>
+          <p class="text-caption" style="margin-bottom: var(--space-6);">Configure how long data is stored.</p>
+          <div class="form-group">
+            <label class="form-label" for="audit-retention">Audit Log Retention (days)</label>
+            <input type="number" class="form-input" id="audit-retention" value="90" min="30" max="365">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="notification-retention">Notification History (days)</label>
+            <input type="number" class="form-input" id="notification-retention" value="30" min="7" max="180">
+          </div>
+        </div>
+
+        <!-- Save -->
+        <div style="display: flex; justify-content: flex-end; gap: var(--space-3);">
+          <button class="btn btn-ghost btn-md">Reset to Defaults</button>
+          <button class="btn btn-primary btn-md">Save Settings</button>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

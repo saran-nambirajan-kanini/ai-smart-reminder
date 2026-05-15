@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-014 Notification Settings - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | "History" tab               | Click   | wireframe-SCR-015-notification-history.html    |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left"><h1 style="font-size: var(--text-h4-size); font-weight: 700;">Notifications</h1></div>
+        <div class="header-right"><div class="avatar">JD</div></div>
+      </header>
+
+      <main class="main-content" id="main-content" style="max-width: 720px;">
+        <!-- Tabs -->
+        <div class="tabs">
+          <span class="tab-item active" aria-current="page">Settings</span>
+          <a href="wireframe-SCR-015-notification-history.html" class="tab-item">History</a>
+        </div>
+
+        <!-- Channel Settings -->
+        <div class="card mb-6">
+          <h3 style="margin-bottom: var(--space-6);">Notification Channels</h3>
+          <div style="display: flex; flex-direction: column; gap: var(--space-5);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: var(--space-4);">
+                <div style="width: 40px; height: 40px; background: var(--color-primary-50); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" fill="none" stroke="var(--color-primary-600)" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold" style="color: var(--color-neutral-900);">Push Notifications</p>
+                  <p class="text-caption">Browser and mobile push alerts</p>
+                </div>
+              </div>
+              <div class="toggle"><div class="toggle-track active"><div class="toggle-thumb"></div></div></div>
+            </div>
+            <div class="divider" style="margin: 0;"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: var(--space-4);">
+                <div style="width: 40px; height: 40px; background: var(--color-info-50); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" fill="none" stroke="var(--color-info-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold" style="color: var(--color-neutral-900);">Email</p>
+                  <p class="text-caption">Digests and important reminders</p>
+                </div>
+              </div>
+              <div class="toggle"><div class="toggle-track active"><div class="toggle-thumb"></div></div></div>
+            </div>
+            <div class="divider" style="margin: 0;"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; align-items: center; gap: var(--space-4);">
+                <div style="width: 40px; height: 40px; background: var(--color-success-50); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" fill="none" stroke="var(--color-success-700)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold" style="color: var(--color-neutral-900);">SMS</p>
+                  <p class="text-caption">Critical deadline alerts only</p>
+                </div>
+              </div>
+              <div class="toggle"><div class="toggle-track"><div class="toggle-thumb"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiet Hours -->
+        <div class="card">
+          <h3 style="margin-bottom: var(--space-5);">Quiet Hours</h3>
+          <p class="text-caption" style="margin-bottom: var(--space-5);">No notifications will be sent during these hours</p>
+          <div style="display: flex; gap: var(--space-4); align-items: flex-end;">
+            <div class="form-group" style="margin: 0; flex: 1;">
+              <label class="form-label" for="quiet-start">From</label>
+              <input type="time" class="form-input" id="quiet-start" value="22:00">
+            </div>
+            <div class="form-group" style="margin: 0; flex: 1;">
+              <label class="form-label" for="quiet-end">To</label>
+              <input type="time" class="form-input" id="quiet-end" value="07:00">
+            </div>
+            <button class="btn btn-primary btn-md">Save</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a href="wireframe-SCR-013-dashboard.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Home</span></a>
+      <a href="wireframe-SCR-006-task-list.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+      <a href="wireframe-SCR-011-ai-task-input.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI</span></a>
+      <a href="wireframe-SCR-010-upcoming-reminders.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Alerts</span></a>
+      <a href="wireframe-SCR-005-user-profile.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></a>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1440, initial-scale=1.0">
+  <title>SCR-012 AI Priority - AI Smart Reminder</title>
+  <link rel="stylesheet" href="shared-styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Map
+  | Element                     | Action  | Target                                         |
+  |-----------------------------|---------|------------------------------------------------|
+  | Task item click             | Click   | wireframe-SCR-007-task-detail.html             |
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--color-primary-400);"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg><span>AI Reminder</span></div>
+      <div class="sidebar-nav">
+        <a href="wireframe-SCR-013-dashboard.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></a>
+        <a href="wireframe-SCR-006-task-list.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg><span>Tasks</span></a>
+        <a href="wireframe-SCR-011-ai-task-input.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI Input</span></a>
+        <a href="wireframe-SCR-012-ai-priority.html" class="sidebar-nav-item active" aria-current="page"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span>AI Priority</span></a>
+        <a href="wireframe-SCR-010-upcoming-reminders.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Reminders</span></a>
+        <a href="wireframe-SCR-015-notification-history.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg><span>Notifications</span></a>
+        <div style="flex: 1;"></div>
+        <a href="wireframe-SCR-005-user-profile.html" class="sidebar-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Profile</span></a>
+      </div>
+    </nav>
+
+    <div class="main-wrapper">
+      <header class="header">
+        <div class="header-left"><h1 style="font-size: var(--text-h4-size); font-weight: 700;">AI Priority Ranking</h1></div>
+        <div class="header-right">
+          <button class="btn btn-outline btn-sm"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Refresh</button>
+          <div class="avatar">JD</div>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content">
+        <!-- AI Disclaimer -->
+        <div class="alert alert-ai mb-6">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0;"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+          <div>
+            <p class="font-semibold" style="margin-bottom: 2px;">AI-powered ranking</p>
+            <p style="font-size: var(--text-body-sm-size);">Tasks are ranked by urgency, impact, and deadlines. Rankings are suggestions — you have the final say.</p>
+          </div>
+        </div>
+
+        <!-- Ranked Tasks -->
+        <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <!-- #1 -->
+          <a href="wireframe-SCR-007-task-detail.html" class="card card-interactive" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-5); border-left: 4px solid var(--color-primary-500);">
+            <div style="width: 44px; height: 44px; background: var(--gradient-primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 18px; flex-shrink: 0;">1</div>
+            <div style="flex: 1;">
+              <p class="font-semibold" style="color: var(--color-neutral-900); margin-bottom: var(--space-1);">Submit quarterly budget proposal</p>
+              <p class="text-caption">Due tomorrow · Finance</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge badge-critical">Critical</span>
+              <p class="text-caption" style="margin-top: var(--space-1);">Score: 98</p>
+            </div>
+          </a>
+
+          <!-- #2 -->
+          <a href="wireframe-SCR-007-task-detail.html" class="card card-interactive" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-5); border-left: 4px solid var(--color-warning-500);">
+            <div style="width: 44px; height: 44px; background: var(--gradient-warm); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 18px; flex-shrink: 0;">2</div>
+            <div style="flex: 1;">
+              <p class="font-semibold" style="color: var(--color-neutral-900); margin-bottom: var(--space-1);">Review API documentation for v2</p>
+              <p class="text-caption">Due in 3 days · Engineering</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge badge-high">High</span>
+              <p class="text-caption" style="margin-top: var(--space-1);">Score: 82</p>
+            </div>
+          </a>
+
+          <!-- #3 -->
+          <a href="wireframe-SCR-007-task-detail.html" class="card card-interactive" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-5); border-left: 4px solid var(--color-info-500);">
+            <div style="width: 44px; height: 44px; background: var(--gradient-cool); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 18px; flex-shrink: 0;">3</div>
+            <div style="flex: 1;">
+              <p class="font-semibold" style="color: var(--color-neutral-900); margin-bottom: var(--space-1);">Prepare team presentation slides</p>
+              <p class="text-caption">Due in 5 days · Work</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge badge-medium">Medium</span>
+              <p class="text-caption" style="margin-top: var(--space-1);">Score: 65</p>
+            </div>
+          </a>
+
+          <!-- #4 -->
+          <a href="wireframe-SCR-007-task-detail.html" class="card card-interactive" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-5); border-left: 4px solid var(--color-neutral-300);">
+            <div style="width: 44px; height: 44px; background: var(--color-neutral-200); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--color-neutral-600); font-weight: 800; font-size: 18px; flex-shrink: 0;">4</div>
+            <div style="flex: 1;">
+              <p class="font-semibold" style="color: var(--color-neutral-900); margin-bottom: var(--space-1);">Update onboarding documentation</p>
+              <p class="text-caption">Due next week · Documentation</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge badge-low">Low</span>
+              <p class="text-caption" style="margin-top: var(--space-1);">Score: 35</p>
+            </div>
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Mobile navigation">
+      <a href="wireframe-SCR-013-dashboard.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/></svg><span>Home</span></a>
+      <a href="wireframe-SCR-006-task-list.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/></svg><span>Tasks</span></a>
+      <a href="wireframe-SCR-011-ai-task-input.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg><span>AI</span></a>
+      <a href="wireframe-SCR-010-upcoming-reminders.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg><span>Alerts</span></a>
+      <a href="wireframe-SCR-005-user-profile.html" class="bottom-nav-item"><svg class="nav-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></a>
+    </nav>
+  </div>
+</body>
+</html>
