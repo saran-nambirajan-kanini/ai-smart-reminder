@@ -121,17 +121,17 @@ dotnet test tests/AiSmartReminder.Architecture.Tests
 
 ## Implementation Validation Strategy
 
-- [ ] `dotnet test tests/AiSmartReminder.Architecture.Tests` passes with all tests green
-- [ ] Temporarily adding `<ProjectReference>` to Infrastructure in Domain.csproj causes the architecture test to FAIL
-- [ ] Test names clearly describe which dependency rule is being enforced
-- [ ] Test output provides actionable error messages listing violating types when a rule is broken
+- [x] `dotnet test tests/AiSmartReminder.Architecture.Tests` passes with all tests green
+- [x] Temporarily adding `<ProjectReference>` to Infrastructure in Domain.csproj causes the architecture test to FAIL
+- [x] Test names clearly describe which dependency rule is being enforced
+- [x] Test output provides actionable error messages listing violating types when a rule is broken
 
 ## Implementation Checklist
 
-- [ ] Create `tests/AiSmartReminder.Architecture.Tests/` xUnit project with `net8.0` target
-- [ ] Add NuGet packages: `NetArchTest.Rules`, `FluentAssertions`
-- [ ] Add project references to Domain, Application, Infrastructure, and Api projects
-- [ ] Implement test: Domain layer has no dependencies on Application, Infrastructure, or Api
-- [ ] Implement test: Application layer has no dependencies on Infrastructure or Api
-- [ ] Implement test: Infrastructure layer has no dependencies on Api
-- [ ] Add test project to `AiSmartReminder.sln` and verify `dotnet test` passes
+- [x] Create `tests/AiSmartReminder.Architecture.Tests/` xUnit project with `net8.0` target
+- [x] Add NuGet packages: `NetArchTest.Rules`, `FluentAssertions`
+- [x] Add project references to Domain, Application, Infrastructure, and Api projects
+- [x] Implement test: Domain layer has no dependencies on Application, Infrastructure, or Api
+- [x] Implement test: Application layer has no dependencies on Infrastructure or Api
+- [x] Implement test: Infrastructure layer has no dependencies on Api
+- [x] Add test project to `AiSmartReminder.sln` and verify `dotnet test` passes
