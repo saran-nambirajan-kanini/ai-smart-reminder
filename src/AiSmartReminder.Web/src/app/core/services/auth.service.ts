@@ -8,7 +8,8 @@ const TOKEN_KEY = 'auth_token';
 })
 export class AuthService {
   login(_credentials: { email: string; password: string }): Observable<boolean> {
-    // Stub: replace with actual API call
+    // Stub: replace with actual API call that returns a token
+    localStorage.setItem(TOKEN_KEY, 'stub-token');
     return of(true);
   }
 
